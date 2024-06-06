@@ -146,10 +146,7 @@ const AgencyDetails = ({ data }: Props) => {
         toast({
           title: 'Created Agency',
         })
-        if (data?.id) return router.refresh()
-        if (response) {
-          return router.refresh()
-        }
+        return router.refresh()
       }
     } catch (error) {
       toast({
