@@ -111,14 +111,14 @@ const MenuOptions = ({
                   <div className="flex flex-col">
                     {details.name}
                     <span className="text-muted-foreground">
-                      {details.address}
+                    {details.city}, {details.country}
                     </span>
                   </div>
                 </div>
                 <div>
                   <ChevronsUpDown
                     size={16}
-                    className="text-muted-foreground"
+                    className="ml-2 text-muted-foreground"
                   />
                 </div>
               </Button>
