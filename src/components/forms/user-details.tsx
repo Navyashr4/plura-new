@@ -69,7 +69,7 @@ const UserDetails = ({ id, type, subAccounts, userData }: Props) => {
   const { toast } = useToast()
   const router = useRouter()
 
-  //Get authUSerDtails
+  //Get authUserDetails
 
   useEffect(() => {
     if (data.user) {
@@ -153,7 +153,7 @@ const UserDetails = ({ id, type, subAccounts, userData }: Props) => {
     if (response) {
       toast({
         title: 'Success',
-        description: 'The request was successfull',
+        description: 'The request was successful',
       })
       if (subAccountPermissions) {
         subAccountPermissions.Permissions.find((perm) => {
@@ -309,7 +309,7 @@ const UserDetails = ({ id, type, subAccounts, userData }: Props) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="AGENCY_ADMING">
+                      <SelectItem value="AGENCY_ADMIN">
                         Agency Admin
                       </SelectItem>
                       {(data?.user?.role === 'AGENCY_OWNER' ||

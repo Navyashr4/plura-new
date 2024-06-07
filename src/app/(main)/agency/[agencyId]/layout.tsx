@@ -46,14 +46,13 @@ const layout = async ({ children, params }: Props) => {
         type="agency"
       />
       <div className="md:pl-[300px]">
-        {/* <InfoBar
+        <InfoBar
           notifications={allNoti}
           role={allNoti.User?.role}
         />
         <div className="relative">
           <BlurPage>{children}</BlurPage>
-        </div> */}
-        {children}
+        </div>
       </div>
     </div>
   )
