@@ -87,10 +87,10 @@ const AllSubaccountsPage = async ({ params }: Props) => {
                     <AlertDialogContent>
                       <AlertDialogHeader>
                         <AlertDialogTitle className="text-left">
-                          Are your absolutely sure
+                          Are you absolutely sure?
                         </AlertDialogTitle>
                         <AlertDescription className="text-left">
-                          This action cannot be undon. This will delete the
+                          This action cannot be undone. This will delete the
                           subaccount and all data related to the subaccount.
                         </AlertDescription>
                       </AlertDialogHeader>
@@ -107,7 +107,7 @@ const AllSubaccountsPage = async ({ params }: Props) => {
                 ))
               ) : (
                 <div className="text-muted-foreground text-center p-4">
-                  No Sub accounts
+                  No Subaccounts
                 </div>
               )}
             </CommandGroup>
