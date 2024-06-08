@@ -55,7 +55,7 @@ const UploadMediaForm = ({ subaccountId }: Props) => {
         subaccountId,
       })
 
-      toast({ title: 'Succes', description: 'Uploaded media' })
+      toast({ title: 'Success', description: 'Uploaded media' })
       router.refresh()
     } catch (error) {
       console.log(error)
@@ -82,11 +82,11 @@ const UploadMediaForm = ({ subaccountId }: Props) => {
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="flex-1">
-                  <FormLabel>File Name</FormLabel>
+                <FormItem className="flex-1 mb-4">
+                  <FormLabel >File Name</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Your agency name"
+                      placeholder="Your file name"
                       {...field}
                     />
                   </FormControl>

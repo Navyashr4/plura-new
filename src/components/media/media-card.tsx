@@ -70,7 +70,8 @@ const MediaCard = ({ file }: Props) => {
               <Copy size={15} /> Copy Image Link
             </DropdownMenuItem>
             <AlertDialogTrigger asChild>
-              <DropdownMenuItem className="flex gap-2">
+              <DropdownMenuItem 
+                className="flex gap-2">
                 <Trash size={15} /> Delete File
               </DropdownMenuItem>
             </AlertDialogTrigger>
