@@ -38,6 +38,8 @@ const FunnelSettings: React.FC<FunnelSettingsProps> = async ({
     subaccountDetails.connectAccountId
   )
 
+  console.log("id", subaccountDetails.connectAccountId)
+
   return (
     <div className="flex gap-4 flex-col xl:!flex-row">
       <Card className="flex-1 flex-shrink">
