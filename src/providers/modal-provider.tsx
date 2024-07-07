@@ -17,6 +17,7 @@ export type ModalData = {
     plans: PricesList['data']
   }
 }
+
 type ModalContextType = {
   data: ModalData
   isOpen: boolean
