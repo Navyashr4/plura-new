@@ -26,13 +26,13 @@ export default async function Home() {
 
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" />
 
-        <p className="text-center">Run your agency, in one place</p>
+        <p className="text-center text-2xl">Master the art of marketing your sustainable food products!</p>
         <div className="bg-gradient-to-r from-primary to-secondary-foreground text-transparent bg-clip-text relative">
-          <h1 className="text-9xl font-bold text-center md:text-[300px]">
-            Plura
+          <h1 className="text-7xl font-bold text-center md:text-[300px] tracking-tighter">
+            EcoBites
           </h1>
         </div>
-        <div className="flex justify-center items-center relative md:mt-[-70px]">
+        <div className="flex justify-center items-center relative md:mt-[-30px]">
           <Image
             src={'/assets/preview.png'}
             alt="banner image"
@@ -43,118 +43,85 @@ export default async function Home() {
           <div className="bottom-0 top-[50%] bg-gradient-to-t dark:from-background left-0 right-0 absolute z-10"></div>
         </div>
       </section>
+      <section className="flex justify-center items-center flex-col gap-4 md:!mt-20 mt-[-60px] mb-40">
+        <h2 className="text-4xl text-center"> Drive the movement towards a sustainable food future</h2>
+        <p className="text-muted-foreground text-center text-xl">
+          EcoBites is an innovative web app designed for sustainable <br />
+          food manufacturers who want to teach others how to effectively <br />
+          market their eco-friendly products. <br />
+          Our platform provides a way to build landing pages, manage marketing tasks, <br />
+          and sell products seamlessly with Stripe. 
+        </p>
+      </section>
       <section className="flex justify-center items-center flex-col gap-4 md:!mt-20 mt-[-60px]">
         <h2 className="text-4xl text-center"> Choose what fits you right</h2>
-        <p className="text-muted-foreground text-center">
+        <p className="text-muted-foreground text-center text-xl">
           Our straightforward pricing plans are tailored to meet your needs. If
           {" you're"} not <br />
           ready to commit you can get started for free.
         </p>
-        <div className="flex  justify-center gap-4 flex-wrap mt-6">
-          {prices.data.map((card) => (
+        <div className="flex justify-center gap-4 flex-wrap mt-6">
+          {pricingCards.map((card) => (
             //WIP: Wire up free product from stripe
             <Card
-              key={card.nickname}
+              key={card.title}
               className={clsx('w-[300px] flex flex-col justify-between', {
-                'border-2 border-primary': card.nickname === 'Unlimited Saas',
+                'border-2 border-primary': card.title === 'Unlimited Saas',
               })}
             >
               <CardHeader>
                 <CardTitle
                   className={clsx('', {
-                    'text-muted-foreground': card.nickname !== 'Unlimited Saas',
+                    'text-muted-foreground': card.title !== 'Unlimited Saas',
                   })}
                 >
-                  {card.nickname}
+                  {card.title}
                 </CardTitle>
                 <CardDescription>
-                  {
-                    pricingCards.find((c) => c.title === card.nickname)
-                      ?.description
-                  }
+                  {card.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <span className="text-4xl font-bold">
-                  {card.unit_amount && card.unit_amount / 100}
+                  {card.price}
                 </span>
                 <span className="text-muted-foreground">
-                  <span>/ {card.recurring?.interval}</span>
                 </span>
               </CardContent>
               <CardFooter className="flex flex-col items-start gap-4">
                 <div>
-                  {pricingCards
-                    .find((c) => c.title === card.nickname)
-                    ?.features.map((feature) => (
-                      <div
-                        key={feature}
-                        className="flex gap-2"
-                      >
-                        <Check />
+                  {card.features.map((feature) => (
+                    <div 
+                      key={feature} 
+                      className='flex gap-2 items-center'>
+                        <Check className='text-muted-foreground'/>
                         <p>{feature}</p>
-                      </div>
-                    ))}
+                    </div>
+                  ))}
                 </div>
                 <Link
-                  href={`/agency?plan=${card.id}`}
-                  className={clsx(
-                    'w-full text-center bg-primary p-2 rounded-md',
-                    {
-                      '!bg-muted-foreground':
-                        card.nickname !== 'Unlimited Saas',
-                    }
-                  )}
-                >
+                   href={`/agency?plan=${card.priceId}`}
+                   className={clsx(
+                     'w-full text-center bg-primary p-2 rounded-md',
+                     {
+                       '!bg-muted-foreground':
+                         card.title !== 'Unlimited Saas',
+                     }
+                   )}
+                 >
                   Get Started
                 </Link>
               </CardFooter>
             </Card>
           ))}
-          <Card className={clsx('w-[300px] flex flex-col justify-between')}>
-            <CardHeader>
-              <CardTitle
-                className={clsx({
-                  'text-muted-foreground': true,
-                })}
-              >
-                {pricingCards[0].title}
-              </CardTitle>
-              <CardDescription>{pricingCards[0].description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <span className="text-4xl font-bold">$0</span>
-              <span>/ month</span>
-            </CardContent>
-            <CardFooter className="flex flex-col  items-start gap-4 ">
-              <div>
-                {pricingCards
-                  .find((c) => c.title === 'Starter')
-                  ?.features.map((feature) => (
-                    <div
-                      key={feature}
-                      className="flex gap-2"
-                    >
-                      <Check />
-                      <p>{feature}</p>
-                    </div>
-                  ))}
-              </div>
-              <Link
-                href="/agency"
-                className={clsx(
-                  'w-full text-center bg-primary p-2 rounded-md',
-                  {
-                    '!bg-muted-foreground': true,
-                  }
-                )}
-              >
-                Get Started
-              </Link>
-            </CardFooter>
-          </Card>
         </div>
       </section>
+      <div>
+        <footer className="mt-16 text-lg bg-[#7E9091] text-white-600 flex items-center justify-center h-12">
+          <p>© EcoBites 2024</p>
+        </footer>
+      </div>
+
     </>
   )
 }
