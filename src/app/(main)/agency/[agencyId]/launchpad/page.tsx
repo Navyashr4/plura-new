@@ -126,7 +126,7 @@ const LaunchPadPage = async ({ params, searchParams }: Props) => {
                   width={80}
                   className="rounded-md object-contain"
                 />
-                <p> Fill in all your bussiness details</p>
+                <p> Fill in all your details</p>
               </div>
               {allDetailsExist ? (
                 <CheckCircleIcon
