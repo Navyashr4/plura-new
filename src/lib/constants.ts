@@ -30,7 +30,7 @@ import Warning from '@/components/icons/warning'
 export const pricingCards = [
   {
     title: 'Starter',
-    description: 'Perfect for trying out plura',
+    description: 'Perfect for trying out Ecobites',
     price: 'Free',
     duration: '',
     highlight: 'Key features',
@@ -39,7 +39,7 @@ export const pricingCards = [
   },
   {
     title: 'Unlimited Saas',
-    description: 'The ultimate agency kit',
+    description: 'The ultimate marketing course kit',
     price: '$199',
     duration: 'month',
     highlight: 'Key features',
@@ -48,7 +48,7 @@ export const pricingCards = [
   },
   {
     title: 'Basic',
-    description: 'For serious agency owners',
+    description: 'For serious marketing course instructors',
     price: '$49',
     duration: 'month',
     highlight: 'Everything in Starter, plus',
